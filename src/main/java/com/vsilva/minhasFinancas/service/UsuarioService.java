@@ -1,5 +1,7 @@
 package com.vsilva.minhasFinancas.service;
 
+import java.util.Optional;
+
 import com.vsilva.minhasFinancas.model.entity.Usuario;
 
 public interface UsuarioService {
@@ -10,4 +12,5 @@ public interface UsuarioService {
 
 	void validarEmail(String email);
 
+	Optional<Usuario> obterPorId(long id);
 }

@@ -3,8 +3,6 @@ package com.vsilva.minhasFinancas.model.entity;
 import java.io.Serializable;
 import java.math.BigDecimal;
 import java.time.LocalDate;
-import java.util.Date;
-
 import javax.persistence.Column;
 import javax.persistence.Convert;
 import javax.persistence.Entity;
@@ -32,7 +30,7 @@ import lombok.Setter;
 import lombok.ToString;
 
 @Entity
-@Table(name = "lancamento")
+@Table(name = "lancamento", schema = "financas")
 @Getter
 @Setter
 @EqualsAndHashCode
@@ -65,7 +63,7 @@ public class Lancamento implements Serializable {
 	private BigDecimal valor;
 
 	@Column(name = "data_cadastro")
-	//@Convert(converter = Jsr310JpaConverters.class)
+	@Convert(converter = Jsr310JpaConverters.LocalDateConverter.class)
 	private LocalDate dataCadastro;
 
 	@Column(name = "tipo")
