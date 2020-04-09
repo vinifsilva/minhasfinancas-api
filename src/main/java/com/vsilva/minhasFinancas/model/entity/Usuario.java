@@ -9,6 +9,8 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -42,17 +44,17 @@ public class Usuario implements Serializable {
 	private String email;
 
 	@Column(name = "senha")
+	@JsonIgnore
 	private String senha;
 
-	public static void main(String args[]) {
-		Usuario usuario = new Usuario();
-		usuario.setEmail("teste@teste.com");
-		usuario.setNome("usuario");
-		usuario.setSenha("senha");
-		Usuario.builder().nome("usuario").email("email").build();
-
-	}
 	/*
+	 * public static void main(String args[]) { Usuario usuario = new Usuario();
+	 * usuario.setEmail("teste@teste.com"); usuario.setNome("usuario");
+	 * usuario.setSenha("senha");
+	 * Usuario.builder().nome("usuario").email("email").build();
+	 * 
+	 * }
+	 * 
 	 * public Long getId() { return id; }
 	 * 
 	 * public void setId(Long id) { this.id = id; }
